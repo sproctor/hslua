@@ -245,11 +245,6 @@ foreign import ccall "lua.h lua_newuserdata"
 foreign import ccall "lua.h lua_getmetatable"
   c_lua_getmetatable :: LuaState -> CInt -> IO CInt
 
-#if LUA_VERSION_NUMBER < 502
-foreign import ccall "lua.h lua_getfenv"
-  c_lua_getfenv :: LuaState -> CInt -> IO ()
-#endif
-
 #if LUA_VERSION_NUMBER >= 502
 foreign import ccall "lua.h lua_getglobal"
   c_lua_getglobal :: LuaState -> Ptr CChar -> IO ()
@@ -272,11 +267,6 @@ foreign import ccall "lua.h lua_rawseti"
 
 foreign import ccall "lua.h lua_setmetatable"
   c_lua_setmetatable :: LuaState -> CInt -> IO ()
-
-#if LUA_VERSION_NUMBER < 502
-foreign import ccall "lua.h lua_setfenv"
-  c_lua_setfenv :: LuaState -> CInt -> IO CInt
-#endif
 
 #if LUA_VERSION_NUMBER >= 502
 foreign import ccall "lua.h lua_setglobal"
