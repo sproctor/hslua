@@ -118,5 +118,5 @@ after_success:
   - set -e
   - set -x
   - if [ -n "${COVERAGE}" ]; then
-      hpc-coveralls --exclude-dir=test --exclude-dir=dist simple-test test-hslua;
+      hpc-coveralls --exclude-dir=test --exclude-dir=dist test-hslua;
     fi
